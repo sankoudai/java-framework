@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xulf.framework.mybatis.mapper.date.DateTestEntityMapper">
+    <resultMap id="BaseResultMap" type="com.xulf.framework.mybatis.domain.date.DateTestEntity">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="create_date" property="createDate" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="BaseColumnList">
+        id, create_date
+    </sql>
+
+    <insert id="insert" >
+        INSERT INTO date_test_entity(id, create_date) VALUES(
+          #{id, jdbcType=INTEGER},
+          #{date, jdbcType=TIMESTAMP}
+        );
+    </insert>
+    <insert id="insert2" parameterType="com.xulf.framework.mybatis.domain.date.DateTestEntity" >
+        INSERT INTO date_test_entity(id, create_date) VALUES(
+        #{id, jdbcType=INTEGER},
+        #{createDate, jdbcType=TIMESTAMP}
+        );
+    </insert>
+</mapper>
