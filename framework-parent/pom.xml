@@ -19,6 +19,8 @@
         <hessian.version>4.0.37</hessian.version>
         <junit.version>4.12</junit.version>
         <mysql.connector.version>5.1.35</mysql.connector.version>
+        <velocity.version>1.5</velocity.version>
+        <velocity.tools.version>2.0</velocity.tools.version>
     </properties>
 
     <dependencyManagement>
@@ -39,12 +41,26 @@
                 <version>${mybatis.version}</version>
             </dependency>
 
+            <!--velocity begin-->
+            <dependency>
+                <groupId>org.apache.velocity</groupId>
+                <artifactId>velocity</artifactId>
+                <version>${velocity.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.velocity</groupId>
+                <artifactId>velocity-tools</artifactId>
+                <version>${velocity.tools.version}</version>
+            </dependency>
+            <!--velocity end-->
+
             <!-- db begin -->
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.connector.version}</version>
             </dependency>
+            <!-- db begin -->
 
             <!--test begin-->
             <dependency>

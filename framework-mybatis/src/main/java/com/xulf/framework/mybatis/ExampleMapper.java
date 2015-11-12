@@ -1,6 +1,7 @@
 package com.xulf.framework.mybatis;
 
 import com.xulf.framework.mybatis.domain.ExampleEntity;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
@@ -66,7 +67,7 @@ public interface ExampleMapper {
     List<ExampleEntity> selectByIds(List<Integer> ids);
     List<ExampleEntity> selectByKeys(List<ExampleEntity> entities);
 
-    /**遍历map
+    /**使用@Param
      */
-//    void batchUpdateAge(@Param("ageMap")Map<Integer, Integer> ageMap);
+    List<ExampleEntity> selectMiddleAges (@Param("older")ExampleEntity older, @Param("younger") ExampleEntity younger);
 }

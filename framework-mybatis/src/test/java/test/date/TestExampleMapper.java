@@ -237,4 +237,31 @@ public class TestExampleMapper extends TestCase {
         }
     }
 
+    public void testSelectMiddleAges(){
+        SqlSession sqlSession = null;
+        try {
+            sqlSession = MybatisUtil.openSqlSession();
+            ExampleMapper mapper = sqlSession.getMapper(ExampleMapper.class);
+
+            if (mapper != null) {
+                ExampleEntity older = new ExampleEntity();
+                older.setAge(10);
+
+                ExampleEntity younger = new ExampleEntity();
+                younger.setAge(25);
+
+                List<ExampleEntity> entities = mapper.selectMiddleAges(older, younger);
+                sqlSession.commit();
+                sqlSession.flushStatements();
+
+                System.out.println(entities);
+            } else {
+                System.out.println("mapper is null!!");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            MybatisUtil.closeSqlSession(sqlSession);
+        }
+    }
 }

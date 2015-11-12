@@ -4,6 +4,7 @@ import com.xulf.framework.jdbc.common.DBUtils;
 import com.xulf.framework.jdbc.domain.ExampleEntity;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -145,6 +146,43 @@ public class ExampleEntityDao {
         return entity;
     }
 
+    public List<ExampleEntity> findByRange(int startId, int endId) {
+        List<ExampleEntity> exampleEntities = new ArrayList<ExampleEntity>();
+
+        Connection con = null;
+        PreparedStatement psmt = null;
+        ResultSet rs = null;
+
+        try{
+            String sql = "select id, username, password, name, gender, age, phone from example_entity where id BETWEEN ? and ?";
+
+            con = DBUtils.getConnection();
+            psmt = con.prepareStatement(sql);
+            psmt.setInt(1, startId);
+            psmt.setInt(2, endId);
+
+            rs = psmt.executeQuery();
+            while(rs.next()){
+                ExampleEntity entity = new ExampleEntity();
+                entity.setId(rs.getInt(1));
+                entity.setUsername(rs.getString(2));
+                entity.setPassword(rs.getString("password"));
+                entity.setName(rs.getString("name"));
+                entity.setGender(rs.getString("gender"));
+                entity.setAge(parserInt(rs.getObject("age"))); //rs.getInt returns o for null
+                entity.setPhone(rs.getString("phone"));
+                exampleEntities.add(entity);
+            }
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }finally {
+            DBUtils.closeConnection(con);
+        }
+
+        return exampleEntities;
+    }
+
     /**
      * 事务执行流程:
      * 1. 建连接
@@ -195,6 +233,27 @@ public class ExampleEntityDao {
         } finally {
             DBUtils.closeAll(con, stmt, null);
         }
+    }
 
+
+    /**
+     * @param obj
+     * @return null 如果obj 无法解析成合法的数字; 数字
+     */
+    private Integer parserInt(Object obj){
+        if(obj == null){
+            return null;
+        }
+
+        if(obj instanceof  Integer){
+            return (Integer) obj;
+        }
+
+        try{
+            return Integer.parseInt(obj.toString());
+        }catch (NumberFormatException e){
+            e.printStackTrace();
+            return null;
+        }
     }
 }

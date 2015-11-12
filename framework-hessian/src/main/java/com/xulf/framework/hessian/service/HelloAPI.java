@@ -6,4 +6,6 @@ package com.xulf.framework.hessian.service;
  */
 public interface HelloAPI {
     String hello();
+
+//    ExampleEntity helloExample();
 }

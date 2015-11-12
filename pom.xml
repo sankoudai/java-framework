@@ -15,5 +15,6 @@
         <module>framework-parent</module>
         <module>framework-jdbc</module>
         <module>framework-mybatis</module>
+        <module>framework-velocity</module>
     </modules>
 </project>

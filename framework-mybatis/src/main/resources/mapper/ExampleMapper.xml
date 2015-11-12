@@ -106,4 +106,10 @@
         </choose>
     </select>
 
+    <!-- @Param-->
+    <select id="selectMiddleAges" resultMap="BaseResultMap">
+        SELECT <include refid="BaseColumnList"/>
+        FROM example_entity
+        WHERE age BETWEEN #{older.age} and #{younger.age}
+    </select>
 </mapper>

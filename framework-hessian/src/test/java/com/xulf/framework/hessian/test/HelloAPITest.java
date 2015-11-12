@@ -16,5 +16,8 @@ public class HelloAPITest {
         HelloAPI api = (HelloAPI)factory.create(HelloAPI.class, url);
 
         System.out.println(api.hello());
+
+//        ExampleEntity entity = api.helloExample();
+//        System.out.println(entity);
     }
 }

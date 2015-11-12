@@ -41,4 +41,10 @@ public class TestExampleEntityDao extends TestCase{
         int[] rowCounts = dao.insertByBatch(entities);
         System.out.println(rowCounts);
     }
+
+    public void testSelectByRange(){
+        ExampleEntityDao dao = new ExampleEntityDao();
+        List<ExampleEntity> entities = dao.findByRange(3, 5);
+        System.out.println(entities);
+    }
 }

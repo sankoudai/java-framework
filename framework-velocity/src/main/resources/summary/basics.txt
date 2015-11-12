@@ -1,0 +1,117 @@
+1. References begin with $ and are used to get sth. Directives begin with # and are used to do sth.
+2. Single line comment begins with ##;  multiline comments #* *#
+
+
+3. References:  3 types:
+    1) variable: $obj
+    2) properties: $obj.address
+    3) methods: $obj.setAttributes(["a", "b"])
+4. Index Notation:
+    $arr[0]
+    $obj["key"]
+5. Formal Reference Notation:
+    ${obj}
+    (Used to clearly distinguish reference from text)
+6. Quiet Reference Notation:
+    $!obj
+    ($obj won't be replaced when not defined. $!obj will be replaced with empty string)
+
+
+7. Directives
+    1) set
+    #set($obj = "string literal")
+    #set($obj = $ref)
+    #set($obj = $ref.property)
+    #set($obj = $ref.getValue())
+    #set($obj = 123)
+    #set($obj = [1, 2, 3])
+    #set($obj = {"name":"jim", "age":27} ##map
+    #set($obj = $ref + 1)
+    #set($obj = false)
+    #set($obj.att = "att")
+
+    #set($obj="jim")
+    $set($obj=null)
+    (Note: $obj results in "jim" !!)
+
+    2) Literals
+    #set($node1="bar")
+    #set($node2="foo")
+    #set($obj="$node1/$node2")
+    $obj
+    (Note: results in bar/foo)
+
+    #set($obj='$node1')
+    $obj
+    (Note: results in $node1)
+
+    3) conditional
+    #if(logical_exp)
+        ...
+    #elseif(logical_exp)
+        ...
+    #else
+        ...
+    #end
+
+    (logical operator: && || !
+     relation operator: == > < )
+
+    4) loop
+    #foreach($elm in $collection)
+        ...
+        #if($foreach.hasNext),#end
+        #if($foreach.count>5)
+            #break
+        #end
+    #end
+
+    5) include
+    #include("one.txt", "two.txt")
+
+    (Note: included text pieces are not rendered by the engine.
+           only files under TEMPLATE_ROOT can be included)
+
+
+    6) parse
+    #parse("template.vm")
+    (Note: file included by parse, will be rendered by the engine;
+           only files under TEMPLATE_ROOT can be parsed)
+
+    7) break
+    #break : stops further rendering of the immediate execution scope.
+             an execution scope is essentially any directive with content or root scope.
+             directive content examples: $foreach, #parse, #define, #macro
+             root scope: template.merger(), Velocity.evaluate()
+
+    8) stop
+    #stop: stops any further rendering of template. This is like System.exit(0) in java.
+
+    9) define
+    #define: lets one assign a block of VTL to a reference
+    Example:
+        #define($block) Hello $who #end
+        #set($who="Velocity")
+        $block
+        (Note: results in Hello Velocity)
+
+    10) macro
+    #macro: define a repated segment of vtl
+    #macro(d $arg1 $arg2)
+        arg1:$arg1  arg2:$arg2
+    #end
+    #d("jim" "green")
+
+
+
+8. special letters:
+    use \ to escape special letters like $ , #
+
+9. format:
+    velocity tends to gobble up spaces
+
+10. range operator
+    [m..n] works only with #set and #foreach
+
+
+
