@@ -3,6 +3,8 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+
+    <!-- standard servlet setup -->
     <servlet>
         <servlet-name>helloWorld</servlet-name>
         <servlet-class>com.xulf.framework.servlet.examples.HelloServlet</servlet-class>
