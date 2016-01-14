@@ -14,4 +14,12 @@
         <url-pattern>/hello</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>requestTester</servlet-name>
+        <servlet-class>com.xulf.framework.servlet.examples.RequestTesterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>requestTester</servlet-name>
+        <url-pattern>/request</url-pattern>
+    </servlet-mapping>
 </web-app>

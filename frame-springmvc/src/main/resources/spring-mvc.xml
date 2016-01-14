@@ -17,4 +17,11 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/interceptor/dispatch/**"/>
+            <bean class="com.xulf.framework.springmvc.interceptor.InterceptorDispatchTester"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
 </beans>

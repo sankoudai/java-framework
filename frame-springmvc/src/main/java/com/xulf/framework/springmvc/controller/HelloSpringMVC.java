@@ -20,7 +20,12 @@ public class HelloSpringMVC {
     }
 
     @RequestMapping("/hello/jsp")
-    public String testJsp(){
+    public String testJsp() {
         return "hello";
+    }
+
+    @RequestMapping("/hello/direct")
+    public String testDirect() {
+        return "redirect";
     }
 }
