@@ -22,6 +22,12 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
+        <!--自定义工具-->
+        <dependency>
+            <groupId>com.xulf.utils</groupId>
+            <artifactId>util-common</artifactId>
+        </dependency>
+
         <!-- test begin-->
         <dependency>
             <groupId>junit</groupId>

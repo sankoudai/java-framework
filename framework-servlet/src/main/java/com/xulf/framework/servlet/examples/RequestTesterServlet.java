@@ -18,6 +18,8 @@ public class RequestTesterServlet extends HttpServlet {
 
         //url  http://localhost:8080/servlet/request
         writer.println("RequestUrl: " + req.getRequestURL());
+        writer.println("<br/>");
+        writer.println("contextPath: " + req.getContextPath());
         writer.close();
     }
 }

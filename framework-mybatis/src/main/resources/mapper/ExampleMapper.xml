@@ -9,24 +9,25 @@
         <result column="gender" property="gender" jdbcType="VARCHAR"/>
         <result column="age" property="age" jdbcType="SMALLINT"/>
         <result column="phone" property="phone" jdbcType="VARCHAR"/>
+        <result column="extra_desc" property="extraDesc" jdbcType="VARCHAR" />
     </resultMap>
     <sql id="BaseColumnList">
-        id, username, password, name, gender, age, phone
+        id, username, password, name, gender, age, phone,extra_desc
     </sql>
 
 
     <!-- begin 基本映射 -->
     <!-- insert 模板-->
     <insert id="insert" parameterType="com.xulf.framework.mybatis.domain.ExampleEntity" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO example_entity(id, username, password, name, gender, age, phone) VALUES (
+        INSERT INTO example_entity(id, username, password, name, gender, age, phone, extra_desc) VALUES (
         #{id, jdbcType=INTEGER},
         #{username, jdbcType=VARCHAR},
         #{password, jdbcType=VARCHAR},
         #{name, jdbcType=VARCHAR},
         #{gender, jdbcType=VARCHAR},
         #{age, jdbcType=SMALLINT},
-        #{phone, jdbcType=VARCHAR}
-        )
+        #{phone, jdbcType=VARCHAR},
+        #{extraDesc, jdbcType=VARCHAR})
     </insert>
 
     <!-- update模板-->
@@ -37,7 +38,8 @@
         name=#{name},
         gender=#{gender},
         age=#{age},
-        phone=#{phone}
+        phone=#{phone},
+        extra_desc=#{extraDesc}
         WHERE id = #{id}
     </update>
 

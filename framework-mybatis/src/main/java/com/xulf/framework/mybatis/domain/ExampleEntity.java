@@ -1,5 +1,7 @@
 package com.xulf.framework.mybatis.domain;
 
+import java.util.Map;
+
 /**
  * @author : sankoudai
  * @version : created at 2015/9/14
@@ -12,7 +14,7 @@ public class ExampleEntity {
     private String gender;
     private Integer age;
     private String phone;
-
+    private Map<String, String> extraDesc;
 
     /*---- getter && setter ----*/
     public Integer getId() {
@@ -71,6 +73,13 @@ public class ExampleEntity {
         this.phone = phone;
     }
 
+    public Map<String, String> getExtraDesc() {
+        return extraDesc;
+    }
+
+    public void setExtraDesc(Map<String, String> extraDesc) {
+        this.extraDesc = extraDesc;
+    }
 
     @Override
     public String toString() {
@@ -82,6 +91,7 @@ public class ExampleEntity {
                         ", gender='" + gender + '\'' +
                         ", age=" + age +
                         ", phone='" + phone + '\'' +
+                        ", extraDesc=" + extraDesc +
                         '}';
     }
 }

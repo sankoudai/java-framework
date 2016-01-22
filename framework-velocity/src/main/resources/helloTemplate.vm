@@ -1,5 +1,10 @@
 <html>
     <body>
         $hello
+
+        #set($count=3)
+        #foreach ($number in [1..$count])
+            $number
+        #end
     </body>
 </html>

@@ -15,5 +15,6 @@ CREATE TABLE example_entity(
   name VARCHAR(1000) ,
   gender VARCHAR(500) Comment'female, male',
   age SMALLINT ,
-  phone VARCHAR(30)
+  phone VARCHAR(30),
+  extra_desc VARCHAR(3000)
 );
