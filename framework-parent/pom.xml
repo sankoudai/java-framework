@@ -23,7 +23,8 @@
         <velocity.tools.version>2.0</velocity.tools.version>
         <activemq.version>5.12.1</activemq.version>
         <spring.version>4.2.4.RELEASE</spring.version>
-
+        <mybatis-spring.version>1.2.3</mybatis-spring.version>
+        <druid.version>1.0.16</druid.version>
         <log4j.version>2.5</log4j.version>
         <slf4j.version>1.7.13</slf4j.version>
 
@@ -115,11 +116,25 @@
                 <version>${mysql.connector.version}</version>
             </dependency>
 
+            <!-- connection pool -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
             <!--mybatis-->
             <dependency>
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis</artifactId>
                 <version>${mybatis.version}</version>
+            </dependency>
+
+            <!-- spring-mybatis -->
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>${mybatis-spring.version}</version>
             </dependency>
 
             <!-- activemq-->
