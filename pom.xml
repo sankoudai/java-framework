@@ -17,7 +17,8 @@
         <module>framework-mybatis</module>
         <module>framework-velocity</module>
         <module>framework-activemq</module>
-        <module>frame-springmvc</module>
-        <module>framework-mybatis-spring</module>
+        <module>framework-springmvc</module>
+        <module>framework-mongodb</module>
+        <module>framework-springdata</module>
     </modules>
 </project>

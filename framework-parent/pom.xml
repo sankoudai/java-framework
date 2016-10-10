@@ -2,33 +2,32 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>java-framework</artifactId>
-        <groupId>com.xulf.framework</groupId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>com.xulf.framework</groupId>
     <artifactId>framework-parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <!-- constants -->
     <properties>
-        <servlet-api.version>3.1.0</servlet-api.version>
-        <mybatis.version>3.3.0</mybatis.version>
-        <hessian.version>4.0.37</hessian.version>
-        <junit.version>4.12</junit.version>
-        <mysql.connector.version>5.1.35</mysql.connector.version>
-        <velocity.version>1.5</velocity.version>
-        <velocity.tools.version>2.0</velocity.tools.version>
-        <activemq.version>5.12.1</activemq.version>
-        <spring.version>4.2.4.RELEASE</spring.version>
-        <mybatis-spring.version>1.2.3</mybatis-spring.version>
-        <druid.version>1.0.16</druid.version>
-        <log4j.version>2.5</log4j.version>
-        <slf4j.version>1.7.13</slf4j.version>
+        <version.servlet-api>3.1.0</version.servlet-api>
+        <version.mybatis>3.3.0</version.mybatis>
+        <version.hessian>4.0.37</version.hessian>
+        <version.junit>4.12</version.junit>
+        <version.mysql-connector>5.1.35</version.mysql-connector>
+        <version.velocity>1.5</version.velocity>
+        <version.velocity-tools>2.0</version.velocity-tools>
+        <version.activemq>5.12.1</version.activemq>
+        <version.spring>4.2.4.RELEASE</version.spring>
+        <version.mybatis-spring>1.2.3</version.mybatis-spring>
+        <version.druid>1.0.16</version.druid>
+        <version.log4j>2.5</version.log4j>
+        <version.slf4j>1.7.13</version.slf4j>
+        <version.mongodb-driver>3.2.2</version.mongodb-driver>
+        <version.springdata-mongo>1.9.4.RELEASE</version.springdata-mongo>
 
-        <xulf.util.version>1.0-SNAPSHOT</xulf.util.version>
+        <version.xulf-util>1.0-SNAPSHOT</version.xulf-util>
     </properties>
 
     <dependencyManagement>
@@ -37,7 +36,7 @@
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
-                <version>${servlet-api.version}</version>
+                <version>${version.servlet-api}</version>
             </dependency>
             <!--servlet begin-->
 
@@ -45,7 +44,7 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-core</artifactId>
-                <version>${spring.version}</version>
+                <version>${version.spring}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>commons-logging</groupId>
@@ -56,26 +55,26 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-beans</artifactId>
-                <version>${spring.version}</version>
+                <version>${version.spring}</version>
             </dependency>
 
             <!--spring context-->
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context</artifactId>
-                <version>${spring.version}</version>
+                <version>${version.spring}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context-support</artifactId>
-                <version>${spring.version}</version>
+                <version>${version.spring}</version>
             </dependency>
 
             <!-- spring aop -->
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-aop</artifactId>
-                <version>${spring.version}</version>
+                <version>${version.spring}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>commons-logging</groupId>
@@ -88,24 +87,31 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-web</artifactId>
-                <version>${spring.version}</version>
+                <version>${version.spring}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-webmvc</artifactId>
-                <version>${spring.version}</version>
+                <version>${version.spring}</version>
+            </dependency>
+
+            <!-- spring data-->
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-mongodb</artifactId>
+                <version>${version.springdata-mongo}</version>
             </dependency>
 
             <!--velocity begin-->
             <dependency>
                 <groupId>org.apache.velocity</groupId>
                 <artifactId>velocity</artifactId>
-                <version>${velocity.version}</version>
+                <version>${version.velocity}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.velocity</groupId>
                 <artifactId>velocity-tools</artifactId>
-                <version>${velocity.tools.version}</version>
+                <version>${version.velocity-tools}</version>
             </dependency>
             <!--velocity end-->
 
@@ -113,28 +119,33 @@
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql.connector.version}</version>
+                <version>${version.mysql-connector}</version>
             </dependency>
 
+            <dependency>
+                <groupId>org.mongodb</groupId>
+                <artifactId>mongodb-driver</artifactId>
+                <version>${version.mongodb-driver}</version>
+            </dependency>
             <!-- connection pool -->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid</artifactId>
-                <version>${druid.version}</version>
+                <version>${version.druid}</version>
             </dependency>
 
             <!--mybatis-->
             <dependency>
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis</artifactId>
-                <version>${mybatis.version}</version>
+                <version>${version.mybatis}</version>
             </dependency>
 
             <!-- spring-mybatis -->
             <dependency>
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis-spring</artifactId>
-                <version>${mybatis-spring.version}</version>
+                <version>${version.mybatis-spring}</version>
             </dependency>
 
             <!-- activemq-->
@@ -146,59 +157,59 @@
             <dependency>
                 <groupId>org.apache.activemq</groupId>
                 <artifactId>activemq-core</artifactId>
-                <version>${activemq.version}</version>
+                <version>${version.activemq}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.activemq</groupId>
                 <artifactId>activemq-client</artifactId>
-                <version>${activemq.version}</version>
+                <version>${version.activemq}</version>
             </dependency>
 
             <!--hessian-->
             <dependency>
                 <groupId>com.caucho</groupId>
                 <artifactId>hessian</artifactId>
-                <version>${hessian.version}</version>
+                <version>${version.hessian}</version>
             </dependency>
 
             <!--log4j-->
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
-                <version>${slf4j.version}</version>
+                <version>${version.slf4j}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-slf4j-impl</artifactId>
-                <version>${log4j.version}</version>
+                <version>${version.log4j}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-core</artifactId>
-                <version>${log4j.version}</version>
+                <version>${version.log4j}</version>
             </dependency>
             <!-- common-logging 实际调用slf4j -->
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>jcl-over-slf4j</artifactId>
-                <version>${slf4j.version}</version>
+                <version>${version.slf4j}</version>
             </dependency>
             <!-- java.util.logging 实际调用slf4j -->
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>jul-to-slf4j</artifactId>
-                <version>${slf4j.version}</version>
+                <version>${version.slf4j}</version>
             </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-simple</artifactId>
-                <version>${slf4j.version}</version>
+                <version>${version.slf4j}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>log4j-over-slf4j</artifactId>
-                <version>${slf4j.version}</version>
+                <version>${version.slf4j}</version>
             </dependency>
 
 
@@ -206,14 +217,14 @@
             <dependency>
                 <groupId>com.xulf.utils</groupId>
                 <artifactId>util-common</artifactId>
-                <version>${xulf.util.version}</version>
+                <version>${version.xulf-util}</version>
             </dependency>
 
             <!--test begin-->
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
-                <version>${junit.version}</version>
+                <version>${version.junit}</version>
             </dependency>
             <!--test end-->
 
