@@ -26,6 +26,7 @@ public class PersonRepoTest {
         // insert
         personRepo.deleteAll();
         personRepo.save(examplePerson());
+        personRepo.save(examplePerson());
 
         context.close();
     }
@@ -65,16 +66,17 @@ public class PersonRepoTest {
     }
 
     private ClassPathXmlApplicationContext getContext() {
-        return new ClassPathXmlApplicationContext(new ClassPathResource("springdata-mongo-config.xml").getPath());
+        return new ClassPathXmlApplicationContext(new ClassPathResource("springdata-mongo.xml").getPath());
     }
 
     private Person examplePerson() {
         Person person = new Person();
+        person.setId("1");
         person.setPersonId(1l);
         person.setName("Achilles");
 
         Map<String, String> others = new HashMap<String, String>();
-        others.put("like_color", "blue");
+        others.put("likeColor", "blue");
         others.put("like_star", "Feymann");
 
         person.setOthers(others);

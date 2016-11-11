@@ -11,8 +11,9 @@ import java.util.Map;
 
 @Document(collection = "person")
 public class Person {
-
     @Id
+    private String id;
+
     private Long personId;
 
     private String name;
@@ -34,6 +35,14 @@ public class Person {
         this.personId = personId;
         this.name = name;
         this.age = age;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public Long getPersonId() {
@@ -65,7 +74,7 @@ public class Person {
     }
 
 
-    public void setAddresses(List<Address> addresses) {
+    public void setAddresses(List<Address> addresses ) {
         this.addresses = addresses;
     }
 
